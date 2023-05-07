@@ -12,20 +12,20 @@ import lombok.NoArgsConstructor;
 public class Alumno {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer IdAlumno;
+    private Integer idalumno;
 
-    @Column(name = "ApeAlumno")
-    private String ApeAlumno;
+    @Column(name = "apealumno")
+    private String apealumno;
 
-    @Column(name = "NomAlumno")
-    private String NomAlumno;
+    @Column(name = "nomalumno")
+    private String nomalumno;
 
     @JsonBackReference
     @ManyToOne
-    @JoinColumn(name = "IdEsp")
+    @JoinColumn(name = "idesp")
     private Especialidad especialidad;
 
-    @Column(name = "Proce")
-    private String Proce;
+    @Column(name = "proce")
+    private String proce;
 }
 

@@ -17,6 +17,6 @@ public class EspecialidadService {
 
     public void registrarEspecialidad(Especialidad especialidad) {especialidadRepository.save(especialidad);}
 
-    public void eliminarEspecialidad(Especialidad especialidad) {especialidadRepository.deleteById(especialidad.getIdEsp());}
+    public void eliminarEspecialidad(Especialidad especialidad) {especialidadRepository.deleteById(especialidad.getIdesp());}
 
 }

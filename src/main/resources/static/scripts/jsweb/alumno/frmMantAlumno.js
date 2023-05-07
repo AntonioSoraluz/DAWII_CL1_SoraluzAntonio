@@ -11,7 +11,7 @@ $(document).on("click", "#btnagregar", function(){
         success: function(resultado){
             $.each(resultado, function(index, value){
                 $("#cboespecialidad").append(
-                    `<option value="${value.IdEsp}">${value.NomEsp}</option>`
+                    `<option value="${value.idesp}">${value.nomesp}</option>`
                 )
             })
         }
@@ -20,12 +20,12 @@ $(document).on("click", "#btnagregar", function(){
 });
 
 $(document).on("click", ".btnactualizar", function(){
-    $("#txtnombre").val($(this).attr("data-NomAlumno"));
-    $("#txtapellido").val($(this).attr("data-ApeAlumno"));
-    $("#txtprocedencia").val($(this).attr("data-Proce"));
-    $("#hddidalumno").val($(this).attr("data-IdAlumno"));
+    $("#txtnombre").val($(this).attr("data-nomalumno"));
+    $("#txtapellido").val($(this).attr("data-apealumno"));
+    $("#txtprocedencia").val($(this).attr("data-proce"));
+    $("#hddidalumno").val($(this).attr("data-idalumno"));
     $("#cboespecialidad").empty();
-    var idespecialidad = $(this).attr("data-IdEsp");
+    var idespecialidad = $(this).attr("data-idesp");
     $.ajax({
         type: "GET",
         url: "/Especialidad/listarEspecialidades",
@@ -33,7 +33,7 @@ $(document).on("click", ".btnactualizar", function(){
         success: function(resultado){
             $.each(resultado, function(index, value){
                 $("#cboespecialidad").append(
-                    `<option value="${value.IdEsp}">${value.NomEsp}</option>`
+                    `<option value="${value.idesp}">${value.nomesp}</option>`
                 )
             })
             $("#cboespecialidad").val(idespecialidad);
@@ -49,11 +49,11 @@ $(document).on("click", "#btnguardar", function(){
         url: "/Alumno/registrarAlumno",
         contentType: "application/json",
         data: JSON.stringify({
-            IdAlumno: $("#hddidalumno").val(),
-            NomAlumno: $("#txtnombre").val(),
-            ApeAlumno: $("#txtapellido").val(),
-            Proce: $("#txtprocedencia").val(),
-            IdEsp: $("#cboespecialidad").val()
+            idalumno: $("#hddidalumno").val(),
+            nomalumno: $("#txtnombre").val(),
+            apealumno: $("#txtapellido").val(),
+            proce: $("#txtprocedencia").val(),
+            idesp: $("#cboespecialidad").val()
         }),
         success: function(resultado){
             if(resultado.respuesta){
@@ -66,13 +66,13 @@ $(document).on("click", "#btnguardar", function(){
 });
 
 $(document).on("click", ".btneliminar", function(){
-    var idAlumno = $(this).attr("data-IdAlumno");
+    var idAlumno = $(this).attr("data-idalumno");
     $.ajax({
         type: "DELETE",
         url: "/Alumno/eliminarAlumno",
         contentType: "application/json",
         data: JSON.stringify({
-            IdAlumno: idAlumno
+            idalumno: idAlumno
         }),
         success: function(resultado){
             if(resultado.respuesta){
@@ -83,8 +83,6 @@ $(document).on("click", ".btneliminar", function(){
     });
 });
 
-
-
 function ListarAlumno(){
     $.ajax({
         type: "GET",
@@ -94,20 +92,22 @@ function ListarAlumno(){
             $("#tblalumno > tbody").html("");
             $.each(resultado, function(index, value){
                 $("#tblalumno > tbody").append("<tr>"+
-                    "<td>"+value.idsala+"</td>"+
-                    "<td>"+value.descsala+"</td>"+
-                    "<td>"+value.asientos+"</td>"+
+                    "<td>"+value.idalumno+"</td>"+
+                    "<td>"+value.nomalumno+"</td>"+
+                    "<td>"+value.apealumno+"</td>"+
+                    "<td>"+value.especialidad.idesp+"</td>"+
+                    "<td>"+value.proce+"</td>"+
                     "<td>"+
                         "<button type='button' class='btn btn-info btnactualizar'"+
-                                     "data-IdAlumno='"+value.IdAlumno+"'"+
-                                     "data-NomAlumno='"+value.NomAlumno+"'"+
-                                     "data-ApeAlumno='"+value.ApeAlumno+"'"+
-                                     "data-Proce='"+value.Proce+"'"+
-                                     "data-IdEsp='"+value.IdEsp+"'>Actualizar</button>"+
+                                     "data-IdAlumno='"+value.idalumno+"'"+
+                                     "data-NomAlumno='"+value.nomalumno+"'"+
+                                     "data-ApeAlumno='"+value.apealumno+"'"+
+                                     "data-Proce='"+value.proce+"'"+
+                                     "data-IdEsp='"+value.idesp+"'>Actualizar</button>"+
                     "</td>"+
                     "<td>"+
                         "<button type='button' class='btn btn-danger btneliminar'"+
-                                     "data-IdAlumno='"+value.IdAlumno+"'>Eliminar</button>"+
+                                     "data-IdAlumno='"+value.idalumno+"'>Eliminar</button>"+
                     "</td></tr>");
             })
         }

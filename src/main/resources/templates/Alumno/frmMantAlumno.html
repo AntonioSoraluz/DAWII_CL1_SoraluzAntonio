@@ -35,22 +35,22 @@
             </thead>
             <tbody>
             <tr th:each="alumno :${listaAlumnos}">
-                <td th:text="${alumno.IdAlumno}"></td>
-                <td th:text="${alumno.NomAlumno}"></td>
-                <td th:text="${alumno.ApeAlumno}"></td>
-                <td th:text="${alumno.especialidad.NomEsp}"></td>
-                <td th:text="${alumno.Proce}"></td>
+                <td th:text="${alumno.idalumno}"></td>
+                <td th:text="${alumno.nomalumno}"></td>
+                <td th:text="${alumno.apealumno}"></td>
+                <td th:text="${alumno.especialidad.nomesp}"></td>
+                <td th:text="${alumno.proce}"></td>
                 <td>
                     <button type="button" class="btn btn-info btnactualizar"
-                            th:data-IdAlumno="${alumno.IdAlumno}"
-                            th:data-NomAlumno="${alumno.NomAlumno}"
-                            th:data-ApeAlumno="${alumno.ApeAlumno}"
-                            th:data-Proce="${alumno.Proce}"
-                            th:data-IdEsp="${alumno.especialidad.IdEsp}">Actualizar</button>
+                            th:data-IdAlumno="${alumno.idalumno}"
+                            th:data-NomAlumno="${alumno.nomalumno}"
+                            th:data-ApeAlumno="${alumno.apealumno}"
+                            th:data-Proce="${alumno.proce}"
+                            th:data-IdEsp="${alumno.especialidad.idesp}">Actualizar</button>
                 </td>
                 <td>
                     <button type="button" class="btn btn-danger btneliminar"
-                            th:data-IdAlumno="${alumno.IdAlumno}">Eliminar</button>
+                            th:data-IdAlumno="${alumno.idalumno}">Eliminar</button>
                 </td>
             </tr>
             </tbody>

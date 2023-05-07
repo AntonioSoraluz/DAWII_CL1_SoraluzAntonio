@@ -5,9 +5,9 @@ import lombok.Data;
 
 @Data
 public class AlumnoRequest {
-    private Integer IdAlumno;
-    private String ApeAlumno;
-    private String NomAlumno;
-    private Integer IdEsp;
-    private String Proce;
+    private Integer idalumno;
+    private String apealumno;
+    private String nomalumno;
+    private Integer idesp;
+    private String proce;
 }

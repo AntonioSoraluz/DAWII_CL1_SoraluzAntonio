@@ -33,14 +33,14 @@ public class AlumnoController {
         Boolean respuesta = true;
         try{
             Alumno objAlumno = new Alumno();
-            if(alumnoRequest.getIdAlumno() > 0){
-                objAlumno.setIdAlumno(alumnoRequest.getIdAlumno());
+            if(alumnoRequest.getIdalumno() > 0){
+                objAlumno.setIdalumno(alumnoRequest.getIdalumno());
             }
-            objAlumno.setApeAlumno(alumnoRequest.getApeAlumno());
-            objAlumno.setNomAlumno(alumnoRequest.getNomAlumno());
+            objAlumno.setApealumno(alumnoRequest.getApealumno());
+            objAlumno.setNomalumno(alumnoRequest.getNomalumno());
             objAlumno.setProce(alumnoRequest.getProce());
             Especialidad objEspecialidad = new Especialidad();
-            objEspecialidad.setIdEsp(alumnoRequest.getIdEsp());
+            objEspecialidad.setIdesp(alumnoRequest.getIdesp());
             objAlumno.setEspecialidad(objEspecialidad);
             alumnoService.registrarAlumno(objAlumno);
         }catch (Exception ex){
@@ -59,7 +59,7 @@ public class AlumnoController {
         String mensaje = "Alumno eliminado correctamente";
         Boolean respuesta = true;
         try{
-            alumnoService.eliminarAlumno(alumnoRequest.getIdAlumno());
+            alumnoService.eliminarAlumno(alumnoRequest.getIdalumno());
         }catch (Exception ex){
             mensaje = "Alumno no eliminado";
             respuesta = false;

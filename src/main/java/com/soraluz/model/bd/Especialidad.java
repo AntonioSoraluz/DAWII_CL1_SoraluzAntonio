@@ -15,13 +15,13 @@ import java.util.List;
 public class Especialidad {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer IdEsp;
+    private Integer idesp;
 
-    @Column(name = "NomEsp")
-    private String NomEsp;
+    @Column(name = "nomesp")
+    private String nomesp;
 
-    @Column(name = "Costo")
-    private Double Costo;
+    @Column(name = "costo")
+    private Double costo;
 
     @JsonManagedReference
     @OneToMany(mappedBy = "especialidad",

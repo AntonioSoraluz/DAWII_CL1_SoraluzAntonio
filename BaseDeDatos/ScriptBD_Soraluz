@@ -1,0 +1,20 @@
+create database cl1_soraluztorresjoseantonio;
+use cl1_soraluztorresjoseantonio;
+CREATE TABLE Especialidad (
+IdEsp int PRIMARY KEY AUTO_INCREMENT,
+NomEsp VARCHAR(30) NOT NULL,
+Costo DOUBLE NOT NULL
+);
+CREATE TABLE Alumno (
+IdAlumno int(5) PRIMARY KEY AUTO_INCREMENT,
+ApeAlumno VARCHAR(30) NOT NULL,
+NomAlumno VARCHAR(30) NOT NULL,
+IdEsp int NOT NULL,
+Proce VARCHAR(50),
+FOREIGN KEY (IdEsp) REFERENCES Especialidad(IdEsp)
+);
+Insert Into Especialidad Values(null,'Educacion Informatica',2500);
+Insert Into Especialidad Values(null,'Administracion',1800);
+Insert Into Especialidad Values(null,'Contabilidad',2000);
+Insert Into Especialidad Values(null,'Idiomas',1800);
+Insert Into Especialidad Values(null,'Ingeniera de Sistemas',2800);
